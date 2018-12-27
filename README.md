@@ -2,6 +2,8 @@
 
 This package provides the application container for sharing services between packages. This package should not do anything else.
 
+It also provides tests for said container, and runs integration tests.
+
 
 ## Examples
 

@@ -1,8 +1,8 @@
 <?php
 
 
-namespace calderawp\caldera\Tests\Traits;
-use calderawp\caldera\core\CalderaCore;
+namespace calderawp\caldera\Core\Tests\Traits;
+use calderawp\caldera\Core\CalderaCore;
 use calderawp\caldera\Events\CalderaEvents;
 use calderawp\caldera\Forms\CalderaForms;
 use calderawp\caldera\restApi\CalderaRestApi;

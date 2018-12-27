@@ -1,0 +1,61 @@
+{
+    "id": "contact-form",
+    "fields": {
+        "firstName": {
+            "id": "firstName",
+            "type": "text",
+            "fieldConfig": [],
+            "name": null,
+            "value": null,
+            "default": null,
+            "field": null,
+            "form": null,
+            "slug": null,
+            "label": "Your Name",
+            "description": null
+        },
+        "email": {
+            "id": "email",
+            "type": "text",
+            "fieldConfig": [],
+            "name": null,
+            "value": null,
+            "default": null,
+            "field": null,
+            "form": null,
+            "slug": null,
+            "label": "Your Email",
+            "description": null
+        },
+        "consent": {
+            "id": "consent",
+            "type": "checkbox",
+            "fieldConfig": [],
+            "name": null,
+            "value": null,
+            "default": null,
+            "field": null,
+            "form": null,
+            "slug": null,
+            "label": "Do you consent to sharing your personally identifying data?",
+            "description": "Learn more by reading our privacy policy"
+        },
+        "submitButton": {
+            "id": "submitButton",
+            "type": "button",
+            "fieldConfig": [],
+            "name": null,
+            "value": null,
+            "default": null,
+            "field": null,
+            "form": null,
+            "slug": null,
+            "label": "Send Message",
+            "description": null
+        }
+    },
+    "name": "Contact Form",
+    "forms": null,
+    "settings": null,
+    "form": null
+}

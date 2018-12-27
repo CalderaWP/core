@@ -1,14 +1,15 @@
 <?php
-namespace calderawp\caldera\Core;
+namespace calderawp\caldera\Core\Tests\Unit;
 use calderawp\interop\Contracts\CalderaModule;
 use calderawp\CalderaContainers\Service\Container;
-use calderawp\caldera\core\CalderaCore;
+use calderawp\caldera\Core\CalderaCore;
 use calderawp\caldera\Events\Contracts\CalderaEventsContract;
 use calderawp\caldera\Forms\Contracts\CalderaFormsContract;
 use calderawp\caldera\restApi\Contracts\CalderaRestApiContract;
 
-class CalderaCoreTest extends \calderawp\caldera\Tests\Unit\TestCase
+class CalderaCoreTest extends TestCase
 {
+
 
 	/**
 	 * @covers \calderawp\caldera\core\CalderaCore::addModule()
@@ -16,7 +17,7 @@ class CalderaCoreTest extends \calderawp\caldera\Tests\Unit\TestCase
 	 */
 	public function testAddModule()
 	{
-		$module = Mockery::mock('HiRoy', CalderaModule::class);
+		$module = \Mockery::mock('HiRoy', CalderaModule::class);
 		$module->shouldReceive('getIdentifier')
 			->andReturn('hiRoy');
 		$core = new CalderaCore($this->serviceContainer());

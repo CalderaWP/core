@@ -1,9 +1,9 @@
 <?php
 
 
-namespace calderawp\caldera\core;
+namespace calderawp\caldera\Core;
 
-use calderawp\caldera\core\CalderaCoreContract;
+use calderawp\caldera\Core\CalderaCoreContract;
 use calderawp\caldera\Events\CalderaEvents;
 use calderawp\caldera\Forms\CalderaForms;
 use calderawp\caldera\Forms\Exception;

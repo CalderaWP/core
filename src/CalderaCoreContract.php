@@ -1,7 +1,7 @@
 <?php
 
 
-namespace calderawp\caldera\core;
+namespace calderawp\caldera\Core;
 use calderawp\caldera\Events\Contracts\CalderaEventsContract as CalderaEvents;
 use calderawp\caldera\Forms\Contracts\CalderaFormsContract as CalderaForms;
 use calderawp\caldera\restApi\Contracts\CalderaRestApiContract as CalderaRestApi;
