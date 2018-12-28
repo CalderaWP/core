@@ -11,102 +11,102 @@ class CalderaCoreTest extends TestCase
 {
 
 
-	/**
-	 * @covers \calderawp\caldera\core\CalderaCore::addModule()
-	 * @covers \calderawp\caldera\core\CalderaCore::getModule()
-	 */
-	public function testAddModule()
-	{
-		$module = \Mockery::mock('HiRoy', CalderaModule::class);
-		$module->shouldReceive('getIdentifier')
-			->andReturn('hiRoy');
-		$core = new CalderaCore($this->serviceContainer());
-		$core->addModule($module);
-		$this->assertEquals($module, $core->getModule('hiRoy'));
-	}
+    /**
+     * @covers \calderawp\caldera\core\CalderaCore::addModule()
+     * @covers \calderawp\caldera\core\CalderaCore::getModule()
+     */
+    public function testAddModule()
+    {
+        $module = \Mockery::mock('HiRoy', CalderaModule::class);
+        $module->shouldReceive('getIdentifier')
+            ->andReturn('hiRoy');
+        $core = new CalderaCore($this->serviceContainer());
+        $core->addModule($module);
+        $this->assertEquals($module, $core->getModule('hiRoy'));
+    }
 
-	/**
-	 * @covers \calderawp\caldera\core\CalderaCore::addModule()
-	 * @covers \calderawp\caldera\core\CalderaCore::getModule()
-	 */
-	public function testGetDefaultModulesByIdentifiers()
-	{
-		$core = new CalderaCore($this->serviceContainer());
-		$this->assertInstanceOf(
-			\calderawp\caldera\Forms\CalderaForms::class,
-				$core->getModule(\calderawp\caldera\Forms\CalderaForms::IDENTIFIER)
-			);
+    /**
+     * @covers \calderawp\caldera\core\CalderaCore::addModule()
+     * @covers \calderawp\caldera\core\CalderaCore::getModule()
+     */
+    public function testGetDefaultModulesByIdentifiers()
+    {
+        $core = new CalderaCore($this->serviceContainer());
+        $this->assertInstanceOf(
+            \calderawp\caldera\Forms\CalderaForms::class,
+            $core->getModule(\calderawp\caldera\Forms\CalderaForms::IDENTIFIER)
+        );
 
-		$this->assertInstanceOf(
-			\calderawp\caldera\restApi\CalderaRestApi::class,
-			$core->getModule(\calderawp\caldera\restApi\CalderaRestApi::IDENTIFIER)
-		);
+        $this->assertInstanceOf(
+            \calderawp\caldera\restApi\CalderaRestApi::class,
+            $core->getModule(\calderawp\caldera\restApi\CalderaRestApi::IDENTIFIER)
+        );
 
-		$this->assertInstanceOf(
-			\calderawp\caldera\Events\CalderaEvents::class,
-			$core->getModule(\calderawp\caldera\Events\CalderaEvents::IDENTIFIER)
-		);
+        $this->assertInstanceOf(
+            \calderawp\caldera\Events\CalderaEvents::class,
+            $core->getModule(\calderawp\caldera\Events\CalderaEvents::IDENTIFIER)
+        );
 
-	}
+    }
 
-	/**
-	 * @covers \calderawp\caldera\core\CalderaCore::getEvents()
-	 * @covers \calderawp\caldera\core\CalderaCore::registerServices()
-	 */
-	public function testGetEvents()
-	{
-		$core = new CalderaCore($this->serviceContainer());
-		$this->assertInstanceOf(
-			CalderaEventsContract::class,
-			$core->getEvents()
-		);
-	}
+    /**
+     * @covers \calderawp\caldera\core\CalderaCore::getEvents()
+     * @covers \calderawp\caldera\core\CalderaCore::registerServices()
+     */
+    public function testGetEvents()
+    {
+        $core = new CalderaCore($this->serviceContainer());
+        $this->assertInstanceOf(
+            CalderaEventsContract::class,
+            $core->getEvents()
+        );
+    }
 
-	/**
-	 * @covers \calderawp\caldera\core\CalderaCore::getServiceContainer()
-	 */
-	public function testGetServiceContainer()
-	{
-		$core = new CalderaCore($this->serviceContainer());
-		$this->assertInstanceOf(
-			\calderawp\CalderaContainers\Service\Container::class,
-			$core->getServiceContainer()
-		);
-	}
+    /**
+     * @covers \calderawp\caldera\core\CalderaCore::getServiceContainer()
+     */
+    public function testGetServiceContainer()
+    {
+        $core = new CalderaCore($this->serviceContainer());
+        $this->assertInstanceOf(
+            \calderawp\CalderaContainers\Service\Container::class,
+            $core->getServiceContainer()
+        );
+    }
 
-	/**
-	 * @covers \calderawp\caldera\core\CalderaCore::getCalderaForms()
-	 * @covers \calderawp\caldera\core\CalderaCore::registerServices()
-	 */
-	public function testGetCalderaForms()
-	{
-		$core = new CalderaCore($this->serviceContainer());
-		$this->assertInstanceOf(
-			CalderaFormsContract::class,
-			$core->getCalderaForms()
-		);
-	}
-	/**
-	 * @covers \calderawp\caldera\core\CalderaCore::getIdentifier()
-	 */
-	public function testGetIdentifier()
-	{
-		$core = new CalderaCore($this->serviceContainer());
-		$this->assertSame('calderaCore', $core->getIdentifier());
-	}
+    /**
+     * @covers \calderawp\caldera\core\CalderaCore::getCalderaForms()
+     * @covers \calderawp\caldera\core\CalderaCore::registerServices()
+     */
+    public function testGetCalderaForms()
+    {
+        $core = new CalderaCore($this->serviceContainer());
+        $this->assertInstanceOf(
+            CalderaFormsContract::class,
+            $core->getCalderaForms()
+        );
+    }
+    /**
+     * @covers \calderawp\caldera\core\CalderaCore::getIdentifier()
+     */
+    public function testGetIdentifier()
+    {
+        $core = new CalderaCore($this->serviceContainer());
+        $this->assertSame('calderaCore', $core->getIdentifier());
+    }
 
-	/**
-	 * @covers \calderawp\caldera\core\CalderaCore::getRestApi()
-	 * @covers \calderawp\caldera\core\CalderaCore::registerServices()
-	 */
-	public function testGetRestApi()
-	{
-		$core = new CalderaCore($this->serviceContainer());
-		$this->assertInstanceOf(
-			CalderaRestApiContract::class,
-			$core->getRestApi()
-		);
-	}
+    /**
+     * @covers \calderawp\caldera\core\CalderaCore::getRestApi()
+     * @covers \calderawp\caldera\core\CalderaCore::registerServices()
+     */
+    public function testGetRestApi()
+    {
+        $core = new CalderaCore($this->serviceContainer());
+        $this->assertInstanceOf(
+            CalderaRestApiContract::class,
+            $core->getRestApi()
+        );
+    }
 
 
 }
