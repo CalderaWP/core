@@ -22,7 +22,10 @@
   "autoload": {
     "psr-4": {
       "calderawp\\caldera\\Core\\": "src"
-    }
+    },
+    "files" : [
+        "Caldera.php"
+    ]
   },
   "autoload-dev": {
     "psr-4": {
