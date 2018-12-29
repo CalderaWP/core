@@ -4,6 +4,7 @@
 namespace calderawp\caldera\Core;
 
 use calderawp\caldera\Core\CalderaCoreContract;
+use calderawp\caldera\DataSource\CalderaDataSource;
 use calderawp\caldera\Events\CalderaEvents;
 use calderawp\caldera\Forms\CalderaForms;
 use calderawp\caldera\Forms\Exception;
@@ -13,7 +14,7 @@ use calderawp\interop\Contracts\CalderaModule;
 use calderawp\caldera\Events\Contracts\CalderaEventsContract;
 use calderawp\caldera\Forms\Contracts\CalderaFormsContract;
 use calderawp\caldera\restApi\Contracts\CalderaRestApiContract;
-
+use calderawp\caldera\DataSource\Contracts\CalderaDataSourceContract;
 class CalderaCore implements CalderaCoreContract, CalderaModule
 {
 
@@ -29,12 +30,18 @@ class CalderaCore implements CalderaCoreContract, CalderaModule
         $this->registerServices($this->serviceContainer);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function addModule(CalderaModule$module): CalderaCoreContract
     {
         $this->modules[$module->getIdentifier()] = $module;
         return$this;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function getModule(string $moduleIdentifier): CalderaModule
     {
 
@@ -56,6 +63,9 @@ class CalderaCore implements CalderaCoreContract, CalderaModule
         case CalderaEvents::IDENTIFIER:
             $module = $this->getEvents();
             break;
+        case CalderaDataSource::IDENTIFIER:
+            $module = $this->getDataSource();
+            break;
 
         }
         if($module ) {
@@ -65,6 +75,57 @@ class CalderaCore implements CalderaCoreContract, CalderaModule
         throw new Exception('Module Not Found');
 
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function getCalderaForms(): CalderaFormsContract
+    {
+        return $this
+            ->getServiceContainer()
+            ->make(CalderaFormsContract::class);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getRestApi(): CalderaRestApiContract
+    {
+        return $this
+            ->getServiceContainer()
+            ->make(CalderaRestApiContract::class);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getEvents(): CalderaEventsContract
+    {
+        return $this
+            ->getServiceContainer()
+            ->make(CalderaEventsContract::class);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getDataSource() :CalderaDataSourceContract
+    {
+        return $this
+            ->getServiceContainer()
+            ->make(CalderaDataSourceContract::class);
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function getCore(): CalderaCoreContract
+    {
+        return $this;
+    }
+
+
     /**
      * @inheritDoc
      */
@@ -81,6 +142,9 @@ class CalderaCore implements CalderaCoreContract, CalderaModule
         return $this->serviceContainer;
     }
 
+    /**
+     * @inheritdoc
+     */
     public function registerServices(Container $container): CalderaModule
     {
         $container->bind(
@@ -111,6 +175,13 @@ class CalderaCore implements CalderaCoreContract, CalderaModule
             }
         );
 
+        $container->singleton(
+            CalderaDataSourceContract::class,
+            function () {
+                return new CalderaDataSource($this, $this->serviceContainerFactory());
+            }
+        );
+
         return$this;
     }
 
@@ -120,33 +191,5 @@ class CalderaCore implements CalderaCoreContract, CalderaModule
         return $this->getServiceContainer()->make(Container::class);
     }
 
-    public function getCalderaForms(): CalderaFormsContract
-    {
-        return $this
-            ->getServiceContainer()
-            ->make(CalderaFormsContract::class);
-    }
 
-    public function getRestApi(): CalderaRestApiContract
-    {
-        return $this
-            ->getServiceContainer()
-            ->make(CalderaRestApiContract::class);
-    }
-
-    public function getEvents(): CalderaEventsContract
-    {
-        return $this
-            ->getServiceContainer()
-            ->make(CalderaEventsContract::class);
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    public function getCore(): CalderaCoreContract
-    {
-        return $this;
-    }
 }

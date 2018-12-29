@@ -5,7 +5,9 @@ namespace calderawp\caldera\Core;
 use calderawp\caldera\Events\Contracts\CalderaEventsContract as CalderaEvents;
 use calderawp\caldera\Forms\Contracts\CalderaFormsContract as CalderaForms;
 use calderawp\caldera\restApi\Contracts\CalderaRestApiContract as CalderaRestApi;
+use calderawp\caldera\DataSource\Contracts\CalderaDataSourceContract as DataSource;
 use calderawp\interop\Contracts\CalderaModule;
+
 interface CalderaCoreContract
 {
 
@@ -25,11 +27,18 @@ interface CalderaCoreContract
     public function getRestApi(): CalderaRestApi;
 
     /**
-     * Get the CalderaEvents modules
+     * Get the CalderaEvents module
      *
      * @return CalderaEvents
      */
     public function getEvents(): CalderaEvents;
+
+    /**
+     * Get the DataSource module
+     *
+     * @return DataSource
+     */
+    public function getDataSource() :DataSource;
 
     /**
      * Get a module

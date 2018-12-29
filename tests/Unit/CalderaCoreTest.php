@@ -1,5 +1,7 @@
 <?php
 namespace calderawp\caldera\Core\Tests\Unit;
+use calderawp\caldera\DataSource\CalderaDataSource;
+use calderawp\caldera\DataSource\Contracts\CalderaDataSourceContract;
 use calderawp\interop\Contracts\CalderaModule;
 use calderawp\CalderaContainers\Service\Container;
 use calderawp\caldera\Core\CalderaCore;
@@ -9,8 +11,6 @@ use calderawp\caldera\restApi\Contracts\CalderaRestApiContract;
 
 class CalderaCoreTest extends TestCase
 {
-
-
     /**
      * @covers \calderawp\caldera\core\CalderaCore::addModule()
      * @covers \calderawp\caldera\core\CalderaCore::getModule()
@@ -45,6 +45,10 @@ class CalderaCoreTest extends TestCase
         $this->assertInstanceOf(
             \calderawp\caldera\Events\CalderaEvents::class,
             $core->getModule(\calderawp\caldera\Events\CalderaEvents::IDENTIFIER)
+        );
+        $this->assertInstanceOf(
+            CalderaDataSourceContract::class,
+            $core->getModule(CalderaDataSource::IDENTIFIER)
         );
 
     }
@@ -109,4 +113,16 @@ class CalderaCoreTest extends TestCase
     }
 
 
+    /**
+     * @covers \calderawp\caldera\core\CalderaCore::getDataSource()
+     * @covers \calderawp\caldera\core\CalderaCore::registerServices()
+     */
+    public function testGetDataSource()
+    {
+        $core = new CalderaCore($this->serviceContainer());
+        $this->assertInstanceOf(
+            CalderaDataSourceContract::class,
+            $core->getDataSource()
+        );
+    }
 }
