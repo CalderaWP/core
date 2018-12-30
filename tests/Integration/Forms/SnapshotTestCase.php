@@ -9,7 +9,7 @@ use Spatie\Snapshots\MatchesSnapshots;
 
 abstract class SnapshotTestCase extends TestCase
 {
-	use MatchesSnapshots;
+    use MatchesSnapshots;
 
 
 }

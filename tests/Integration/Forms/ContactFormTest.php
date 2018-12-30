@@ -9,9 +9,10 @@ class ContactFormTest extends SnapshotTestCase
 {
 
 
-	public function testContactFormToArray(){
-		$contactForm = new ContactForm();
-		$this->assertMatchesJsonSnapshot(json_encode($contactForm));
+    public function testContactFormToArray()
+    {
+        $contactForm = new ContactForm();
+        $this->assertMatchesJsonSnapshot(json_encode($contactForm));
 
-	}
+    }
 }
