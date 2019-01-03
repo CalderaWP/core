@@ -12,7 +12,9 @@
             "form": null,
             "slug": null,
             "label": "Your Name",
-            "description": null
+            "description": null,
+            "fieldType": "text",
+            "fieldId": "firstName"
         },
         "email": {
             "id": "email",
@@ -25,7 +27,9 @@
             "form": null,
             "slug": null,
             "label": "Your Email",
-            "description": null
+            "description": null,
+            "fieldType": "text",
+            "fieldId": "email"
         },
         "consent": {
             "id": "consent",
@@ -38,24 +42,85 @@
             "form": null,
             "slug": null,
             "label": "Do you consent to sharing your personally identifying data?",
-            "description": "Learn more by reading our privacy policy"
-        },
-        "submitButton": {
-            "id": "submitButton",
-            "type": "button",
-            "fieldConfig": [],
-            "name": null,
-            "value": null,
-            "default": null,
-            "field": null,
-            "form": null,
-            "slug": null,
-            "label": "Send Message",
-            "description": null
+            "description": "Learn more by reading our privacy policy",
+            "fieldType": "checkbox",
+            "fieldId": "consent"
         }
     },
     "name": "Contact Form",
     "forms": null,
     "settings": null,
-    "form": null
+    "form": null,
+    "rows": [
+        {
+            "rowId": "info-row",
+            "columns": [
+                {
+                    "width": "1\/2",
+                    "fields": [
+                        {
+                            "id": "firstName",
+                            "type": "text",
+                            "fieldConfig": [],
+                            "name": null,
+                            "value": null,
+                            "default": null,
+                            "field": null,
+                            "form": null,
+                            "slug": null,
+                            "label": "Your Name",
+                            "description": null,
+                            "fieldType": "text",
+                            "fieldId": "firstName"
+                        }
+                    ]
+                },
+                {
+                    "width": "1\/2",
+                    "fields": [
+                        {
+                            "id": "email",
+                            "type": "text",
+                            "fieldConfig": [],
+                            "name": null,
+                            "value": null,
+                            "default": null,
+                            "field": null,
+                            "form": null,
+                            "slug": null,
+                            "label": "Your Email",
+                            "description": null,
+                            "fieldType": "text",
+                            "fieldId": "email"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "rowId": "privacy-row",
+            "columns": [
+                {
+                    "width": "1",
+                    "fields": [
+                        {
+                            "id": "consent",
+                            "type": "checkbox",
+                            "fieldConfig": [],
+                            "name": null,
+                            "value": null,
+                            "default": null,
+                            "field": null,
+                            "form": null,
+                            "slug": null,
+                            "label": "Do you consent to sharing your personally identifying data?",
+                            "description": "Learn more by reading our privacy policy",
+                            "fieldType": "checkbox",
+                            "fieldId": "consent"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }
