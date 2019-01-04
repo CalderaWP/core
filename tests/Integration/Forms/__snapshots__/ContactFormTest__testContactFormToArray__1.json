@@ -69,6 +69,7 @@
     "forms": null,
     "settings": null,
     "form": null,
+    "processors": null,
     "rows": [
         {
             "rowId": "info-row",
