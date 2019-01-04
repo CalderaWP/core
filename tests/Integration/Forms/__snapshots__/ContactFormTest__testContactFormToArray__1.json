@@ -4,7 +4,13 @@
         "firstName": {
             "id": "firstName",
             "type": "text",
-            "fieldConfig": [],
+            "fieldConfig": {
+                "options": [],
+                "multiple": false,
+                "buttonType": "submit",
+                "html5type": "text",
+                "attributes": []
+            },
             "name": null,
             "value": null,
             "default": null,
@@ -19,7 +25,13 @@
         "email": {
             "id": "email",
             "type": "text",
-            "fieldConfig": [],
+            "fieldConfig": {
+                "options": [],
+                "multiple": false,
+                "buttonType": "submit",
+                "html5type": "email",
+                "attributes": []
+            },
             "name": null,
             "value": null,
             "default": null,
@@ -34,7 +46,13 @@
         "consent": {
             "id": "consent",
             "type": "checkbox",
-            "fieldConfig": [],
+            "fieldConfig": {
+                "options": [],
+                "multiple": false,
+                "buttonType": "submit",
+                "html5type": "text",
+                "attributes": []
+            },
             "name": null,
             "value": null,
             "default": null,
@@ -61,7 +79,13 @@
                         {
                             "id": "firstName",
                             "type": "text",
-                            "fieldConfig": [],
+                            "fieldConfig": {
+                                "options": [],
+                                "multiple": false,
+                                "buttonType": "submit",
+                                "html5type": "text",
+                                "attributes": []
+                            },
                             "name": null,
                             "value": null,
                             "default": null,
@@ -81,7 +105,13 @@
                         {
                             "id": "email",
                             "type": "text",
-                            "fieldConfig": [],
+                            "fieldConfig": {
+                                "options": [],
+                                "multiple": false,
+                                "buttonType": "submit",
+                                "html5type": "email",
+                                "attributes": []
+                            },
                             "name": null,
                             "value": null,
                             "default": null,
@@ -106,7 +136,13 @@
                         {
                             "id": "consent",
                             "type": "checkbox",
-                            "fieldConfig": [],
+                            "fieldConfig": {
+                                "options": [],
+                                "multiple": false,
+                                "buttonType": "submit",
+                                "html5type": "text",
+                                "attributes": []
+                            },
                             "name": null,
                             "value": null,
                             "default": null,
