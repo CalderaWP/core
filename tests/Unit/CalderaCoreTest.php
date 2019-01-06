@@ -113,29 +113,29 @@ class CalderaCoreTest extends TestCase
     }
 
 
-	/**
-	 * @covers \calderawp\caldera\core\CalderaCore::getDataSource()
-	 * @covers \calderawp\caldera\core\CalderaCore::registerServices()
-	 */
-	public function testGetDataSource()
-	{
-		$core = new CalderaCore($this->serviceContainer());
-		$this->assertInstanceOf(
-			CalderaDataSourceContract::class,
-			$core->getDataSource()
-		);
-	}
+    /**
+     * @covers \calderawp\caldera\core\CalderaCore::getDataSource()
+     * @covers \calderawp\caldera\core\CalderaCore::registerServices()
+     */
+    public function testGetDataSource()
+    {
+        $core = new CalderaCore($this->serviceContainer());
+        $this->assertInstanceOf(
+            CalderaDataSourceContract::class,
+            $core->getDataSource()
+        );
+    }
 
-	/**
-	 * @covers \calderawp\caldera\core\CalderaCore::getHttp()
-	 * @covers \calderawp\caldera\core\CalderaCore::registerServices()
-	 */
-	public function testGetHttp()
-	{
-		$core = new CalderaCore($this->serviceContainer());
-		$this->assertInstanceOf(
-			\calderawp\caldera\Http\Contracts\CalderaHttpContract::class,
-			$core->getHttp()
-		);
-	}
+    /**
+     * @covers \calderawp\caldera\core\CalderaCore::getHttp()
+     * @covers \calderawp\caldera\core\CalderaCore::registerServices()
+     */
+    public function testGetHttp()
+    {
+        $core = new CalderaCore($this->serviceContainer());
+        $this->assertInstanceOf(
+            \calderawp\caldera\Http\Contracts\CalderaHttpContract::class,
+            $core->getHttp()
+        );
+    }
 }
