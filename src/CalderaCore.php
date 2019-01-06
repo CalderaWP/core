@@ -68,9 +68,9 @@ class CalderaCore implements CalderaCoreContract, CalderaModule
         case CalderaDataSource::IDENTIFIER:
             $module = $this->getDataSource();
             break;
-		case CalderaHttpContract::IDENTIFIER:
-			$module = $this->getHttp();
-			break;
+        case CalderaHttpContract::IDENTIFIER:
+            $module = $this->getHttp();
+            break;
 
         }
         if($module ) {
@@ -121,15 +121,15 @@ class CalderaCore implements CalderaCoreContract, CalderaModule
             ->make(CalderaDataSourceContract::class);
     }
 
-	/**
-	 * @inheritdoc
-	 */
-	public function getHttp() :CalderaHttpContract
-	{
-		return $this
-			->getServiceContainer()
-			->make(CalderaHttpContract::class);
-	}
+    /**
+     * @inheritdoc
+     */
+    public function getHttp() :CalderaHttpContract
+    {
+        return $this
+            ->getServiceContainer()
+            ->make(CalderaHttpContract::class);
+    }
 
     /**
      * @inheritDoc
@@ -196,15 +196,15 @@ class CalderaCore implements CalderaCoreContract, CalderaModule
             }
         );
 
-		$container->singleton(
-			CalderaHttpContract::class,
-			function () {
-				return new CalderaHttp($this, $this->serviceContainerFactory());
-			}
-		);
+        $container->singleton(
+            CalderaHttpContract::class,
+            function () {
+                return new CalderaHttp($this, $this->serviceContainerFactory());
+            }
+        );
 
 
-		return$this;
+        return$this;
     }
 
 
