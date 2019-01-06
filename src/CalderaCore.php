@@ -4,6 +4,8 @@
 namespace calderawp\caldera\Core;
 
 use calderawp\caldera\Core\CalderaCoreContract;
+use calderawp\caldera\Http\CalderaHttp;
+use calderawp\caldera\Http\Contracts\CalderaHttpContract;
 use calderawp\caldera\DataSource\CalderaDataSource;
 use calderawp\caldera\Events\CalderaEvents;
 use calderawp\caldera\Forms\CalderaForms;
@@ -66,6 +68,9 @@ class CalderaCore implements CalderaCoreContract, CalderaModule
         case CalderaDataSource::IDENTIFIER:
             $module = $this->getDataSource();
             break;
+		case CalderaHttpContract::IDENTIFIER:
+			$module = $this->getHttp();
+			break;
 
         }
         if($module ) {
@@ -116,6 +121,15 @@ class CalderaCore implements CalderaCoreContract, CalderaModule
             ->make(CalderaDataSourceContract::class);
     }
 
+	/**
+	 * @inheritdoc
+	 */
+	public function getHttp() :CalderaHttpContract
+	{
+		return $this
+			->getServiceContainer()
+			->make(CalderaHttpContract::class);
+	}
 
     /**
      * @inheritDoc
@@ -182,7 +196,15 @@ class CalderaCore implements CalderaCoreContract, CalderaModule
             }
         );
 
-        return$this;
+		$container->singleton(
+			CalderaHttpContract::class,
+			function () {
+				return new CalderaHttp($this, $this->serviceContainerFactory());
+			}
+		);
+
+
+		return$this;
     }
 
 

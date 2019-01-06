@@ -1,8 +1,22 @@
 # Caldera Core
 
-This package provides the application container for sharing services between packages. This package should not do anything else.
+This package provides the application container for sharing services between packages and it helps with testing the integration of PHP packages.
 
-It also provides tests for said container, and runs integration tests.
+* Provides application container with:
+    * Interop - Shared interfaces and traits that:
+        - Interfaces that provide data-typing of entities, more consistent translation to and from array/ JSON/ database serialization and more predictable public APIs of business logic providing classes.
+        - Traits that provide implementations of these interfaces. 
+    * Forms - Forms and form entries.
+    * Rest API 
+        - REST API endpoints that can translate to and from PSR-7 or WordPress REST API requests.
+        - The Caldera Forms REST API.
+    * HTTP - Interactions between application and outside world via HTTP.
+        - Base Request/Response classes used for REST API request/ responses as well as HTTP clients
+        - Http clients
+        - Dispatching HTTP requests to other servers.
+    * Database - Database interactions -- CRUD + anonymize and queries. Works with WordPress, and could work with any MySQL-like database.
+    * Data sourcing - Not used yet, may have been a mistake.
+* Provides tests for said the application container, and runs integration tests.
 
 
 ## Examples
