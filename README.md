@@ -3,19 +3,28 @@
 This package provides the application container for sharing services between packages and it helps with testing the integration of PHP packages.
 
 * Provides application container with:
-    * Interop - Shared interfaces and traits that:
+    * Interop - `calderawp/interop`: Shared interfaces and traits that:
         - Interfaces that provide data-typing of entities, more consistent translation to and from array/ JSON/ database serialization and more predictable public APIs of business logic providing classes.
         - Traits that provide implementations of these interfaces. 
-    * Forms - Forms and form entries.
-    * Rest API 
+    * Forms - `calderawp/forms`: Forms and form entries.
+    * Rest API - `calderawp/rest-api`: REST API endpoints and controllers
         - REST API endpoints that can translate to and from PSR-7 or WordPress REST API requests.
         - The Caldera Forms REST API.
-    * HTTP - Interactions between application and outside world via HTTP.
+    * HTTP - `calderawp/http`: Http interactions between application and outside world via HTTP.
         - Base Request/Response classes used for REST API request/ responses as well as HTTP clients
         - Http clients
         - Dispatching HTTP requests to other servers.
-    * Database - Database interactions -- CRUD + anonymize and queries. Works with WordPress, and could work with any MySQL-like database.
-    * Data sourcing - Not used yet, may have been a mistake.
+    * Database - `calderawp/caldera-db`: interactions -- CRUD + anonymize and queries.
+        - Works with WordPress, and could work with any MySQL-like database.
+        - Mainly for internal use. The data package
+    * Data Sourcing - `calderawp/data-source` Provides common, swappable interface for accessing application.
+        - By default, uses `calderawp/caldera-db`
+        - Could use any database, locally or via remote API.
+    * Events - `calderawp/events` - WordPress-like event dispatching.
+        - Provides an ApplyFilters/AddFilter implementation.
+        - Needs an AddAction/DoAction implementation.
+        - The WordPress plugin SHOULD (it does not yet) repeat events with `apply_filters` and `do_action`.
+        
 * Provides tests for said the application container, and runs integration tests.
 
 
@@ -26,13 +35,13 @@ In general, you should use the function `\caldera()` to access the main containe
 $calderaForms = caldera()->getCalderaForms();
 ```
 
-### Instantiate Core
-
+### Instantiate Caldera Core
+You can use the static accessor function, which always returns the same, global instance of Caldera Core:
 ```php
 $calderaForms = caldera();
 ```
 
-or
+Alternatively, you can create your own instance of Caldera Core:
 
 ```php
 use calderawp\CalderaContainers\Service\Container;
@@ -42,7 +51,7 @@ $core = new CalderaCore(new Container());
 
 ```
 
-### Get The Caldera Forms
+### Get The Caldera Forms Module
 ```php
 $calderaForms = caldera()->getCalderaForms();
 ```
@@ -57,7 +66,7 @@ $core = new CalderaCore(new Container());
 $calderaForms = $core->getCalderaForms();
 ```
 
-### Get The Caldera Rest API
+### Get The Caldera Rest API Module
 ```php
 $calderaForms = caldera()->getRestApi();
 ```
@@ -74,7 +83,7 @@ $restApi = $core->getRestApi();
 ```
 
 
-### Get The Caldera Events
+### Get The Caldera Events Module
 ```php
 $calderaForms = caldera()->getEvents();
 ```
@@ -88,6 +97,22 @@ use calderawp\caldera\core\CalderaCore;
 
 $core = new CalderaCore(new Container());
 $calderaEvents = $core->getEvents();
+```
+
+### Get The Caldera Http Module
+```php
+$calderaForms = caldera()->getHttp();
+```
+
+or
+
+
+```php
+use calderawp\CalderaContainers\Service\Container;
+use calderawp\caldera\core\CalderaCore;
+
+$core = new CalderaCore(new Container());
+$calderaEvents = $core->getHttp();
 ```
 
 ### Add A Module 
