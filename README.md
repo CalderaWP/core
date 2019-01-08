@@ -127,4 +127,6 @@ $module = $core->getModule('moduleIdentifier');
 ## Testing
 Unit tests are in `tests/Unit`. They are run at same time as integration tests -- `composer test:integration` -- for now.
 
-
+    
+## License, Copyright, etc.
+Copyright 2018+ CalderaWP LLC and licensed under the terms of the GNU GPL license. Please share with your neighbor.
