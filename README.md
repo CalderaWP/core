@@ -9,6 +9,12 @@ This package provides the application container for sharing services between pac
     
 * 🌋 [Issues](https://github.com/CalderaWP/caldera/issues) and [pull requests](https://github.com/CalderaWP/caldera/pulls), should be submitted to the [main Caldera repo](https://github.com/CalderaWP/caldera/pulls).
 
+## Install
+* Add to your package:
+    - `composer require calderawp/http`
+* Install for development:
+    - `git clone git@github.com:CalderaWP/http.git && composer install`
+
 
 ## Overview
 * Provides application container with:
