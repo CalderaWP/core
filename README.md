@@ -2,6 +2,15 @@
 
 This package provides the application container for sharing services between packages and it helps with testing the integration of PHP packages.
 
+## 👀🌋 This Is A Module Of The [Caldera Framework](https://github.com/CalderaWP/caldera)
+* 🌋 Find Caldera Forms Here:
+    - [Caldera Forms on Github](http://github.com/calderawp/caldera-forms/)
+    - [CalderaForms.com](http://calderaforms.com)
+    
+* 🌋 [Issues](https://github.com/CalderaWP/caldera/issues) and [pull requests](https://github.com/CalderaWP/caldera/pulls), should be submitted to the [main Caldera repo](https://github.com/CalderaWP/caldera/pulls).
+
+
+## Overview
 * Provides application container with:
     * Interop - `calderawp/interop`: Shared interfaces and traits that:
         - Interfaces that provide data-typing of entities, more consistent translation to and from array/ JSON/ database serialization and more predictable public APIs of business logic providing classes.
