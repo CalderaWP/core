@@ -68,7 +68,7 @@ class CalderaCore implements CalderaCoreContract, CalderaModule
         case CalderaDataSource::IDENTIFIER:
             $module = $this->getDataSource();
             break;
-        case CalderaHttpContract::IDENTIFIER:
+        case CalderaHttp::IDENTIFIER:
             $module = $this->getHttp();
             break;
 
